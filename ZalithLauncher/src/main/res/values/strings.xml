@@ -230,6 +230,8 @@
     <string name="splash_screen_installing">The launcher is extracting these files. Once done, it will automatically enter the main screen. Please wait patiently.</string>
     <!-- Button on the first run screen to start extracting and installing -->
     <string name="splash_screen_agree">Install</string>
+    <!-- Unofficial modified build notice, shown on the splash screen (required by upstream GPLv3 additional terms) -->
+    <string name="splash_unofficial_build">Unofficial modified build</string>
     <!-- Title of the dialog asking the user to grant notification permission -->
     <string name="notification_title">Check Notification Permission</string>
     <!-- Confirm button in the notification permission dialog -->

@@ -1,28 +1,21 @@
-# Zalith Launcher 2
-![Downloads](https://img.shields.io/github/downloads/ZalithLauncher/ZalithLauncher2/total)
-[![Sponsor](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors)](https://afdian.com/a/MovTery)
+# Star Launcher
+
+[![Downloads](https://img.shields.io/github/downloads/qrosterteam-debug/Star-Launcher/total)](https://github.com/qrosterteam-debug/Star-Launcher/releases)
+[![贊助 MovTery](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors)](https://afdian.com/a/MovTery)
 
 [English](README_EN_US.md) | [简体中文](README.md)
 
+**Star Launcher** 是一個面向 **Android 裝置** 的 [Minecraft: Java Edition](https://www.minecraft.net/) 啟動器。它是 [Zalith Launcher 2](https://github.com/ZalithLauncher/ZalithLauncher2)（作者 [MovTery](https://github.com/MovTery) 及其貢獻者）的**非官方社群分支**。上游專案使用 [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher/tree/v3_openjdk/app_pojavlauncher/src/main/jni) 作為啟動核心，並採用 **Jetpack Compose** 與 **Material Design 3** 構建現代化 UI 體驗。
 
-> [!IMPORTANT]
-> 該專案與 [ZalithLauncher](https://github.com/ZalithLauncher/ZalithLauncher) 屬於兩個完全不同的專案  
-
-**Zalith Launcher 2** 是一個全新設計、面向 **Android 裝置** 的 [Minecraft: Java Edition](https://www.minecraft.net/) 啟動器。專案使用 [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher/tree/v3_openjdk/app_pojavlauncher/src/main/jni) 作為啟動核心，採用 **Jetpack Compose** 與 **Material Design 3** 構建現代化 UI 體驗。  
-我們目前正在搭建自己的官方網站 [zalithlauncher.cn](https://zalithlauncher.cn)  
-此外，我們已注意到有第三方使用「Zalith Launcher」名稱搭建了一個看似官方的網站。請注意：**該網站並非我們創建**，其透過冒用名義並植入廣告牟利。我們對此類行為**不參與、不認可、不信任**。  
-請務必提高警覺，**謹防個人隱私資訊洩露**！
-
-
+> [!NOTE]
+> Star Launcher 是 Zalith Launcher 2 (GPL-3.0) 的**非官方修改版**。
+> 上游專案的全部榮譽歸屬於原作者，可在應用內「關於」頁面查看致謝名單。
+> Star Launcher 的問題請在本倉庫回報，請勿向上游專案提交。
 
 ## 🌐 語言與翻譯支援
 
-我們正在使用 Weblate 平台翻譯 Zalith Launcher 2，歡迎您前往我們的 [Weblate 專案](https://hosted.weblate.org/projects/zalithlauncher2) 參與翻譯！  
-感謝每一位語言貢獻者的支持，讓 Zalith Launcher 2 更加多語化、更加國際化！
-
-
-
-
+翻譯由上游專案透過 Weblate 平台維護，歡迎前往[上游 Weblate 專案](https://hosted.weblate.org/projects/zalithlauncher2)參與翻譯！
+感謝每一位語言貢獻者的支持！
 
 ## 📦 構建方式（開發者）
 
@@ -39,25 +32,22 @@
 ### 構建步驟
 
 ```bash
-git clone git@github.com:ZalithLauncher/ZalithLauncher2.git
+git clone https://github.com/qrosterteam-debug/Star-Launcher.git
 # 使用 Android Studio 開啟專案並進行構建
 ```
-
-
-
 
 ## 📜 License
 
 本專案程式碼遵循 **[GPL-3.0 license](LICENSE)** 開源協議。
 
-### 附加條款（依據 GPLv3 開源授權條款第七條）
+### 附加條款 (依據 GPLv3 開源協議第七條)
 
-1. 當你分發本程式的修改版本時，必須以合理方式修改該程式的名稱或版本號，以區別於原始版本。（依據 [GPLv3, 7(c)](https://github.com/ZalithLauncher/ZalithLauncher2/blob/969827b/LICENSE#L372-L374)）
-    - 修改版本 **不得在名稱中包含原程式名稱「ZalithLauncher」或其縮寫「ZL」，亦不得使用與官方名稱相近、可能造成混淆的名稱**。
-    - 所有修改版本 **必須在程式啟動畫面或主介面中以明顯方式標示其為「非官方修改版」**。
-    - 程式的應用名稱可於 [gradle.properties](./ZalithLauncher/gradle.properties) 中進行修改。
+1. 當你分發該程式的修改版本時，你必須以合理方式修改該程式的名稱或版本號，以示其與原始版本不同。(依據 [GPLv3, 7(c)](https://github.com/ZalithLauncher/ZalithLauncher2/blob/969827b/LICENSE#L372-L374))
+   - 修改版本 **不得在名稱中包含原程式名稱「ZalithLauncher」或其縮寫「ZL」，也不得使用與官方名稱相近、可能導致混淆的名稱**。
+   - 所有修改版本 **必須在程式啟動頁面或主介面中以明顯方式標註其為「非官方修改版」**。
+   - 該程式的應用名稱可在 [gradle.properties](./ZalithLauncher/gradle.properties) 中修改。
 
-2. 你不得移除本程式所顯示的版權聲明。（依據 [GPLv3, 7(b)](https://github.com/ZalithLauncher/ZalithLauncher2/blob/969827b/LICENSE#L368-L370)）
+2. 你不得移除該程式所顯示的版權聲明。(依據 [GPLv3, 7(b)](https://github.com/ZalithLauncher/ZalithLauncher2/blob/969827b/LICENSE#L368-L370))
 
 ## 引用開源專案
   
