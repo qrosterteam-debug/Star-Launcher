@@ -99,6 +99,7 @@ import com.movtery.zalithlauncher.ui.screens.content.LicenseScreen
 import com.movtery.zalithlauncher.ui.screens.content.LogViewScreen
 import com.movtery.zalithlauncher.ui.screens.content.MultiplayerScreen
 import com.movtery.zalithlauncher.ui.screens.content.SettingsScreen
+import com.movtery.zalithlauncher.ui.screens.content.setup.SetupWizardScreen
 import com.movtery.zalithlauncher.ui.screens.content.VersionExportScreen
 import com.movtery.zalithlauncher.ui.screens.content.VersionSettingsScreen
 import com.movtery.zalithlauncher.ui.screens.content.VersionsManageScreen
@@ -175,7 +176,8 @@ fun MainScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            TopBar(
+            //首次设置向导期间，隐藏顶栏，保证向导为全屏体验
+            if (mainScreenKey !is NormalNavKey.SetupWizard) TopBar(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(40.dp),
@@ -555,6 +557,13 @@ private fun NavigationUI(
                         startGuideOnce = { keys ->
                             eventViewModel.sendStartGuideOnce(keys)
                         }
+                    )
+                }
+                entry<NormalNavKey.SetupWizard> {
+                    SetupWizardScreen(
+                        backStackViewModel = screenBackStackModel,
+                        eventViewModel = eventViewModel,
+                        submitError = submitError
                     )
                 }
                 entry<NestedNavKey.Settings> { key ->

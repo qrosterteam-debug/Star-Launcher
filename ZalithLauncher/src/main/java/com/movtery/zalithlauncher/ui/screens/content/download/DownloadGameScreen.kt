@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -44,6 +45,8 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import androidx.navigation3.runtime.entryProvider
 import com.google.gson.JsonSyntaxException
 import com.movtery.zalithlauncher.R
+import com.movtery.zalithlauncher.game.download.engine.AllSourcesFailedException
+import com.movtery.zalithlauncher.game.download.engine.BatchDownloadException
 import com.movtery.zalithlauncher.game.download.game.GameDownloadInfo
 import com.movtery.zalithlauncher.game.download.game.GameInstaller
 import com.movtery.zalithlauncher.game.download.game.optifine.CantFetchingOptiFineUrlException
@@ -109,6 +112,12 @@ private class GameDownloadViewModel(): ViewModel() {
     var installer by mutableStateOf<GameInstaller?>(null)
 
     /**
+     * 上一次安装请求的信息，用于安装失败后的“重试”
+     */
+    var lastInstallInfo by mutableStateOf<GameDownloadInfo?>(null)
+        private set
+
+    /**
      * 刷新游戏下载页面内的版本名称检查
      */
     private fun refreshVersionNameCheck() {
@@ -122,6 +131,7 @@ private class GameDownloadViewModel(): ViewModel() {
         onStop: () -> Unit = {},
     ) {
         installOperation = GameInstallOperation.Install
+        lastInstallInfo = info
         installer = GameInstaller(context, info, viewModelScope).also {
             it.installGame(
                 onInstalled = { version ->
@@ -207,6 +217,20 @@ fun DownloadGameScreen(
                 }
             )
         },
+        onRetry = viewModel.lastInstallInfo?.let { info ->
+            {
+                viewModel.install(
+                    context = context,
+                    info = info,
+                    onStart = {
+                        eventViewModel.sendKeepScreen(true)
+                    },
+                    onStop = {
+                        eventViewModel.sendKeepScreen(false)
+                    }
+                )
+            }
+        },
         onCancel = {
             viewModel.cancel()
             eventViewModel.sendKeepScreen(false)
@@ -289,6 +313,7 @@ private fun GameInstallOperation(
     updateOperation: (GameInstallOperation) -> Unit = {},
     installer: GameInstaller?,
     onInstall: (GameDownloadInfo) -> Unit,
+    onRetry: (() -> Unit)? = null,
     onCancel: () -> Unit
 ) {
     when (gameInstallOperation) {
@@ -352,7 +377,7 @@ private fun GameInstallOperation(
                 is CantFetchingOptiFineUrlException -> stringResource(R.string.download_install_error_cant_fetch_optifine_download_url)
                 is OptiFineForge17IncompatibleException -> stringResource(R.string.download_install_error_optifine_forge17_incompatible, th.buildof)
                 is JvmCrashException -> stringResource(R.string.download_install_error_jvm_crash, th.code)
-                is DownloadFailedException -> stringResource(R.string.download_install_error_download_failed)
+                is DownloadFailedException, is BatchDownloadException, is AllSourcesFailedException -> stringResource(R.string.download_install_error_download_failed)
                 else -> when {
                     th.isProcessStartRefused() -> stringResource(R.string.download_install_error_process_start)
                     else -> th.localizedMessage ?: th.message ?: th::class.qualifiedName ?: "Unknown error"
@@ -381,6 +406,13 @@ private fun GameInstallOperation(
                 confirmButton = {
                     Button(onClick = dismiss) {
                         MarqueeText(text = stringResource(R.string.generic_confirm))
+                    }
+                },
+                dismissButton = {
+                    if (onRetry != null) {
+                        TextButton(onClick = onRetry) {
+                            MarqueeText(text = stringResource(R.string.generic_retry))
+                        }
                     }
                 }
             )

@@ -100,6 +100,7 @@ import com.movtery.zalithlauncher.ui.components.toHex
 import com.movtery.zalithlauncher.ui.components.verticalScrollWithBar
 import com.movtery.zalithlauncher.ui.screens.NestedNavKey
 import com.movtery.zalithlauncher.ui.screens.NormalNavKey
+import com.movtery.zalithlauncher.ui.screens.removeAndNavigateTo
 import com.movtery.zalithlauncher.ui.screens.TitledNavKey
 import com.movtery.zalithlauncher.ui.screens.content.elements.DisabledAlpha
 import com.movtery.zalithlauncher.ui.screens.content.settings.layouts.CardPosition
@@ -121,6 +122,7 @@ import com.movtery.zalithlauncher.utils.string.getMessageOrToString
 import com.movtery.zalithlauncher.viewmodel.BackgroundViewModel
 import com.movtery.zalithlauncher.viewmodel.ErrorViewModel
 import com.movtery.zalithlauncher.viewmodel.LocalBackgroundViewModel
+import com.movtery.zalithlauncher.viewmodel.ScreenBackStackViewModel
 import kotlinx.coroutines.Dispatchers
 import java.io.File
 
@@ -135,6 +137,7 @@ private sealed interface CustomColorOperation {
 @Composable
 fun LauncherSettingsScreen(
     key: NestedNavKey.Settings,
+    backStackViewModel: ScreenBackStackViewModel,
     settingsScreenKey: TitledNavKey?,
     mainScreenKey: TitledNavKey?,
     submitError: (ErrorViewModel.ThrowableMessage) -> Unit,
@@ -184,6 +187,7 @@ fun LauncherSettingsScreen(
                                 ColorThemeType.VERDANTFIELD -> stringResource(R.string.theme_color_verdant_field)
                                 ColorThemeType.URBAN_ASH -> stringResource(R.string.theme_color_urban_ash)
                                 ColorThemeType.VERDANT_DAWN -> stringResource(R.string.theme_color_verdant_dawn)
+                                ColorThemeType.STARLIGHT -> stringResource(R.string.theme_color_starlight)
                                 ColorThemeType.CUSTOM -> stringResource(R.string.generic_custom)
                             }
                         },
@@ -437,6 +441,28 @@ fun LauncherSettingsScreen(
                                         Logger.error(TAG, "Failed to package log files.", e)
                                     }
                                 )
+                            )
+                        }
+                    )
+                }
+            }
+
+            // Star Launcher：重新运行首次设置向导
+            AnimatedItem(scope) { yOffset ->
+                SettingsCardColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset { IntOffset(x = 0, y = yOffset.roundToPx()) }
+                ) {
+                    SettingsCard(
+                        modifier = Modifier.fillMaxWidth(),
+                        position = CardPosition.Single,
+                        title = stringResource(R.string.setup_settings_rerun_title),
+                        summary = stringResource(R.string.setup_settings_rerun_summary),
+                        onClick = {
+                            backStackViewModel.mainScreen.removeAndNavigateTo(
+                                removes = backStackViewModel.clearBeforeNavKeys,
+                                screenKey = NormalNavKey.SetupWizard
                             )
                         }
                     )

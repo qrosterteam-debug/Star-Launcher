@@ -368,9 +368,14 @@ object AllSettings : SettingsRegistry() {
      */
     val launcherColorTheme = enumSetting(
         "launcherColorTheme",
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) ColorThemeType.DYNAMIC
-        else ColorThemeType.EMBERMIRE
+        ColorThemeType.STARLIGHT
     )
+
+    /**
+     * Star Launcher 首次设置向导是否已完成
+     * Whether the Star Launcher first-run setup wizard has been completed
+     */
+    val setupCompleted = boolSetting("setupCompleted", false)
 
     /**
      * 自定义颜色主题色

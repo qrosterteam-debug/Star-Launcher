@@ -19,5 +19,31 @@
 package com.movtery.zalithlauncher.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import com.movtery.zalithlauncher.R
 
-val AppTypography = Typography()
+/**
+ * Star Launcher display font: Orbitron (SIL OFL 1.1).
+ * Applied to display / headline / title styles for the SL brand look;
+ * body and label styles keep the platform default for readability.
+ */
+private val StarDisplayFont = FontFamily(
+    Font(R.font.orbitron_extrabold, weight = FontWeight.ExtraBold),
+    Font(R.font.orbitron_semibold, weight = FontWeight.SemiBold)
+)
+
+private val DefaultTypography = Typography()
+
+val AppTypography = Typography(
+    displayLarge = DefaultTypography.displayLarge.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    displayMedium = DefaultTypography.displayMedium.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    displaySmall = DefaultTypography.displaySmall.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    headlineLarge = DefaultTypography.headlineLarge.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    headlineMedium = DefaultTypography.headlineMedium.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    headlineSmall = DefaultTypography.headlineSmall.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.ExtraBold),
+    titleLarge = DefaultTypography.titleLarge.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.SemiBold),
+    titleMedium = DefaultTypography.titleMedium.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.SemiBold),
+    titleSmall = DefaultTypography.titleSmall.copy(fontFamily = StarDisplayFont, fontWeight = FontWeight.SemiBold)
+)

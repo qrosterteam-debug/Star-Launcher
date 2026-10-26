@@ -577,6 +577,84 @@ private val verdantDawnDark = darkColorScheme(
     surfaceContainerHighest = surfaceContainerHighestDark.verdantDawn,
 )
 
+private val starlightLight = lightColorScheme(
+    primary = primaryLight.starlight,
+    onPrimary = onPrimaryLight.starlight,
+    primaryContainer = primaryContainerLight.starlight,
+    onPrimaryContainer = onPrimaryContainerLight.starlight,
+    secondary = secondaryLight.starlight,
+    onSecondary = onSecondaryLight.starlight,
+    secondaryContainer = secondaryContainerLight.starlight,
+    onSecondaryContainer = onSecondaryContainerLight.starlight,
+    tertiary = tertiaryLight.starlight,
+    onTertiary = onTertiaryLight.starlight,
+    tertiaryContainer = tertiaryContainerLight.starlight,
+    onTertiaryContainer = onTertiaryContainerLight.starlight,
+    error = errorLight.starlight,
+    onError = onErrorLight.starlight,
+    errorContainer = errorContainerLight.starlight,
+    onErrorContainer = onErrorContainerLight.starlight,
+    background = backgroundLight.starlight,
+    onBackground = onBackgroundLight.starlight,
+    surface = surfaceLight.starlight,
+    onSurface = onSurfaceLight.starlight,
+    surfaceVariant = surfaceVariantLight.starlight,
+    onSurfaceVariant = onSurfaceVariantLight.starlight,
+    outline = outlineLight.starlight,
+    outlineVariant = outlineVariantLight.starlight,
+    scrim = scrimLight.starlight,
+    inverseSurface = inverseSurfaceLight.starlight,
+    inverseOnSurface = inverseOnSurfaceLight.starlight,
+    inversePrimary = inversePrimaryLight.starlight,
+    surfaceDim = surfaceDimLight.starlight,
+    surfaceBright = surfaceBrightLight.starlight,
+    surfaceContainerLowest = surfaceContainerLowestLight.starlight,
+    surfaceContainerLow = surfaceContainerLowLight.starlight,
+    surfaceContainer = surfaceContainerLight.starlight,
+    surfaceContainerHigh = surfaceContainerHighLight.starlight,
+    surfaceContainerHighest = surfaceContainerHighestLight.starlight,
+)
+
+
+private val starlightDark = darkColorScheme(
+    primary = primaryDark.starlight,
+    onPrimary = onPrimaryDark.starlight,
+    primaryContainer = primaryContainerDark.starlight,
+    onPrimaryContainer = onPrimaryContainerDark.starlight,
+    secondary = secondaryDark.starlight,
+    onSecondary = onSecondaryDark.starlight,
+    secondaryContainer = secondaryContainerDark.starlight,
+    onSecondaryContainer = onSecondaryContainerDark.starlight,
+    tertiary = tertiaryDark.starlight,
+    onTertiary = onTertiaryDark.starlight,
+    tertiaryContainer = tertiaryContainerDark.starlight,
+    onTertiaryContainer = onTertiaryContainerDark.starlight,
+    error = errorDark.starlight,
+    onError = onErrorDark.starlight,
+    errorContainer = errorContainerDark.starlight,
+    onErrorContainer = onErrorContainerDark.starlight,
+    background = backgroundDark.starlight,
+    onBackground = onBackgroundDark.starlight,
+    surface = surfaceDark.starlight,
+    onSurface = onSurfaceDark.starlight,
+    surfaceVariant = surfaceVariantDark.starlight,
+    onSurfaceVariant = onSurfaceVariantDark.starlight,
+    outline = outlineDark.starlight,
+    outlineVariant = outlineVariantDark.starlight,
+    scrim = scrimDark.starlight,
+    inverseSurface = inverseSurfaceDark.starlight,
+    inverseOnSurface = inverseOnSurfaceDark.starlight,
+    inversePrimary = inversePrimaryDark.starlight,
+    surfaceDim = surfaceDimDark.starlight,
+    surfaceBright = surfaceBrightDark.starlight,
+    surfaceContainerLowest = surfaceContainerLowestDark.starlight,
+    surfaceContainerLow = surfaceContainerLowDark.starlight,
+    surfaceContainer = surfaceContainerDark.starlight,
+    surfaceContainerHigh = surfaceContainerHighDark.starlight,
+    surfaceContainerHighest = surfaceContainerHighestDark.starlight,
+)
+
+
 private fun customLight(
     color: Color,
     style: PaletteStyle,
@@ -629,6 +707,7 @@ fun ZalithLauncherTheme(
                 ColorThemeType.VERDANTFIELD -> verdantFieldDark
                 ColorThemeType.URBAN_ASH -> urbanAshDark
                 ColorThemeType.VERDANT_DAWN -> verdantDawnDark
+                ColorThemeType.STARLIGHT -> starlightDark
                 ColorThemeType.CUSTOM -> customDark(
                     color = customColor,
                     style = customPaletteStyle
@@ -644,6 +723,7 @@ fun ZalithLauncherTheme(
                 ColorThemeType.VERDANTFIELD -> verdantFieldLight
                 ColorThemeType.URBAN_ASH -> urbanAshLight
                 ColorThemeType.VERDANT_DAWN -> verdantDawnLight
+                ColorThemeType.STARLIGHT -> starlightLight
                 ColorThemeType.CUSTOM -> customLight(
                     color = customColor,
                     style = customPaletteStyle

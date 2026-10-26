@@ -38,6 +38,10 @@ sealed interface NormalNavKey : TitledNavKey {
     @Serializable data object UnpackDeps: NormalNavKey
     /** 启动器主页屏幕 */
     @Serializable data object LauncherMain : NormalNavKey
+    /** 首次设置向导屏幕 */
+    @Serializable data object SetupWizard : NormalNavKey {
+        @Contextual override val title: AndroidStringText = androidText(R.string.page_title_setup_wizard)
+    }
     /** 账号管理屏幕 */
     @Serializable data class AccountManager(
         val loginMenu: FirstLoginMenu = FirstLoginMenu.NONE

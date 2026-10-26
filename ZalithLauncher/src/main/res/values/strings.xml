@@ -24,6 +24,7 @@
     <string name="generic_warning">Warning</string>
     <string name="generic_back">Back</string>
     <string name="generic_refresh">Refresh</string>
+    <string name="generic_retry">Retry</string>
     <string name="generic_reset">Reset</string>
     <string name="generic_delete">Delete</string>
     <string name="generic_rename">Rename</string>
@@ -136,6 +137,7 @@
     <string name="theme_color_urban_ash">Urban Ash</string>
     <!-- Option of the theme color setting in launcher settings -->
     <string name="theme_color_verdant_dawn">Silent Forest Dawn</string>
+    <string name="theme_color_starlight">Starlight</string>
     <!-- Title of the color picker dialog -->
     <string name="theme_color_picker_title">Color Picker</string>
     <!-- Button in the color picker dialog to edit the color as a hex code -->
@@ -2927,4 +2929,71 @@
     <string name="guide_tip_blank">Tap any blank area to continue to the next step</string>
     <!-- Next-step hint shown near a screen corner during the final guide step; tapping any blank area finishes the whole guide -->
     <string name="guide_tip_finish">Tap any blank area to finish the guide</string>
+
+    <!-- Star Launcher first-run setup wizard -->
+    <string name="page_title_setup_wizard">First-Time Setup</string>
+    <string name="setup_header_subtitle">Set up your launcher</string>
+    <string name="setup_step_welcome">Welcome</string>
+    <string name="setup_step_account">Account</string>
+    <string name="setup_step_permissions">Permissions</string>
+    <string name="setup_step_hardware">Hardware</string>
+    <string name="setup_step_driver">Graphics &amp; Driver</string>
+    <string name="setup_step_finish">All Set</string>
+    <string name="setup_next">Next</string>
+    <string name="setup_welcome_title">Welcome to Star Launcher</string>
+    <string name="setup_welcome_desc">A Minecraft: Java Edition launcher for Android, powered by Zalith Launcher 2. Let\'s set everything up in a few quick steps.</string>
+    <string name="setup_welcome_get_started">Get Started</string>
+    <string name="setup_welcome_skip">Skip setup (use defaults)</string>
+    <string name="setup_account_desc">Sign in with a Microsoft account for online play, or create a local account for offline play. You can add or change accounts anytime.</string>
+    <string name="setup_account_microsoft">Sign in with Microsoft</string>
+    <string name="setup_account_microsoft_desc">Skins, servers and online multiplayer</string>
+    <string name="setup_account_microsoft_unavailable">Microsoft login is not configured in this build (missing OAuth client ID). Build with your own client ID to enable it.</string>
+    <string name="setup_account_local">Local account</string>
+    <string name="setup_account_local_desc">Offline play, no email needed</string>
+    <string name="setup_account_local_username">Username</string>
+    <string name="setup_account_local_create">Create account</string>
+    <string name="setup_account_logged_in">Signed in as %1$s</string>
+    <string name="setup_account_skip">You can also decide later — accounts live in the account manager.</string>
+    <string name="setup_permissions_desc">Star Launcher works without special permissions, but these improve the experience.</string>
+    <string name="setup_permissions_storage">All files access</string>
+    <string name="setup_permissions_storage_desc">Store games on shared storage and manage game files</string>
+    <string name="setup_permissions_storage_request">Star Launcher needs the “All files access” permission to manage game files on your device. You can also continue without it — the launcher will keep files in its private folder.</string>
+    <string name="setup_permissions_notifications">Notifications</string>
+    <string name="setup_permissions_notifications_desc">Download progress and task notifications</string>
+    <string name="setup_permissions_grant">Grant</string>
+    <string name="setup_permissions_granted">Granted</string>
+    <string name="setup_permissions_optional">Both are optional — you can change them later in system settings.</string>
+    <string name="setup_hardware_scanning">Checking your device…</string>
+    <string name="setup_hardware_gpu">GPU</string>
+    <string name="setup_hardware_soc">Processor</string>
+    <string name="setup_hardware_ram">Memory</string>
+    <string name="setup_hardware_android">System</string>
+    <string name="setup_hardware_unknown">Not detected</string>
+    <string name="setup_hardware_recommend">Recommended renderer: %1$s</string>
+    <string name="setup_hardware_recommend_adreno">Adreno GPU detected — Zink over the Turnip Vulkan driver delivers desktop-class graphics on modern Minecraft versions.</string>
+    <string name="setup_hardware_recommend_system">%1$s detected — the system graphics driver offers the best compatibility.</string>
+    <string name="setup_driver_renderer">Renderer</string>
+    <string name="setup_driver_renderer_desc">Pick the graphics renderer for the game. This is just a starting point — you can change it anytime in Settings.</string>
+    <string name="setup_driver_zink_desc">Zink + Turnip Vulkan — best for modern versions</string>
+    <string name="setup_driver_krypton_desc">System GLES driver — best compatibility</string>
+    <string name="setup_driver_title">Vulkan driver</string>
+    <string name="setup_driver_bundled">Bundled Turnip driver</string>
+    <string name="setup_driver_bundled_desc">Ships with the launcher, works out of the box</string>
+    <string name="setup_driver_installed">Installed: %1$s</string>
+    <string name="setup_driver_community">Community drivers</string>
+    <string name="setup_driver_community_desc">Latest Turnip builds from the verified FCL-Team feed</string>
+    <string name="setup_driver_feed_error">Failed to load drivers: %1$s</string>
+    <string name="setup_driver_incompatible">Needs %1$s or newer</string>
+    <string name="setup_driver_download_failed">Driver download failed: %1$s</string>
+    <string name="setup_driver_install_failed">Could not open the installer: %1$s</string>
+    <string name="setup_driver_open_page">Open the download page</string>
+    <string name="setup_driver_system_note">%1$s uses the device\'s system graphics driver — no extra driver is needed.</string>
+    <string name="setup_finish_title">You\'re all set!</string>
+    <string name="setup_finish_account">Account</string>
+    <string name="setup_finish_not_set">Not set</string>
+    <string name="setup_finish_memory">Memory for the game</string>
+    <string name="setup_finish_hint">That\'s everything! Download a Minecraft version from the Download page and press Launch. You can re-run this wizard in Settings → Launcher.</string>
+    <string name="setup_finish_start">Start using Star Launcher</string>
+    <string name="setup_settings_rerun_title">Run first-time setup again</string>
+    <string name="setup_settings_rerun_summary">Re-run the setup wizard: account, permissions, hardware check and drivers</string>
 </resources>

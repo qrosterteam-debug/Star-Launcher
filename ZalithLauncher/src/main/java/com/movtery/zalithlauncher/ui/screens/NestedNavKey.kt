@@ -22,6 +22,7 @@ import com.movtery.zalithlauncher.R
 import com.movtery.zalithlauncher.game.download.assets.platform.Platform
 import com.movtery.zalithlauncher.game.download.assets.platform.PlatformClasses
 import com.movtery.zalithlauncher.game.version.installed.Version
+import com.movtery.zalithlauncher.setting.AllSettings
 import com.movtery.zalithlauncher.ui.androidText
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
@@ -39,7 +40,11 @@ sealed interface NestedNavKey {
     /** 主屏幕 */
     @Serializable class Main : BackStackNavKey<TitledNavKey>() {
         init {
-            backStack.addIfEmpty(NormalNavKey.LauncherMain)
+            // 首次启动时，进入 Star Launcher 首次设置向导
+            backStack.addIfEmpty(
+                if (AllSettings.setupCompleted.state) NormalNavKey.LauncherMain
+                else NormalNavKey.SetupWizard
+            )
         }
     }
     /** 设置屏幕 */

@@ -96,6 +96,7 @@ fun SettingsScreen(
             )
             NavigationUI(
                 key = key,
+                backStackViewModel = backStackViewModel,
                 mainScreenKey = backStackViewModel.mainScreen.currentKey,
                 settingsScreenKey = backStackViewModel.settingsScreen.currentKey,
                 onCurrentKeyChange = { newKey ->
@@ -182,6 +183,7 @@ private fun TabMenu(
 @Composable
 private fun NavigationUI(
     key: NestedNavKey.Settings,
+    backStackViewModel: ScreenBackStackViewModel,
     mainScreenKey: TitledNavKey?,
     settingsScreenKey: TitledNavKey?,
     onCurrentKeyChange: (TitledNavKey?) -> Unit,
@@ -222,6 +224,7 @@ private fun NavigationUI(
                 entry<NormalNavKey.Settings.Launcher> {
                     LauncherSettingsScreen(
                         key = key,
+                        backStackViewModel = backStackViewModel,
                         settingsScreenKey = settingsScreenKey,
                         mainScreenKey = mainScreenKey,
                         submitError = submitError,
